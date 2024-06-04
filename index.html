@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tae</title>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+  <h1 x-data="{ message: 'I ❤️ Tae' }" x-text="message"></h1>
+  <div>
+    <table x-data="{
+      examples: [
+        {test: '出る',	answer: '出た'},
+        {test: '行く',	answer: '行った'},
+        {test: 'する',	answer: 'した'},
+        {test: '買う',	answer: '買った'},
+        {test: '売る',	answer: '売った'},
+        {test: '食べる',	answer: '食べた'},
+        {test: '入る',	answer: '入った'},
+        {test: '来る',	answer: 'きた'},
+        {test: '飲む',	answer: '飲んだ'},
+        {test: 'しゃべる',	answer: 'しゃべった'},
+        {test: '見る',	answer: '見た'},
+        {test: '切る',	answer: '切った'},
+        {test: '帰る',	answer: '帰った'},
+        {test: '書く',	answer: '書いた'},
+        {test: '待つ',	answer: '待った'},
+        {test: '話す',	answer: '話した'},
+        {test: '泳ぐ',	answer: '泳いだ'},
+        {test: '死ぬ',	answer: '死んだ'},
+      ]}">
+      <thead>
+        <tr>
+          <th>Verb</th>
+          <th>Past Tense</th>
+        </tr>
+      </thead>
+      <tbody>
+        <template x-for="example in examples">
+          <tr x-data="{open: false}">
+            <td x-text="example.test"></td>
+            <td>
+              <button x-on:click="open = !open">Show</button>
+            </td>
+            <td>
+              <span x-show="open" x-text="example.answer"></span>
+            </td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+
+  </div>
+
+</body>
+<footer>
+  <script src="https://unpkg.com/htmx.org@1.9.12"
+    integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+    crossorigin="anonymous"></script>
+</footer>
+
+</html>
